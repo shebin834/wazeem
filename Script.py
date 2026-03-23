@@ -1,5 +1,5 @@
 class script(object):
-    START_TXT = """<b><u>🚩 ᴊᴀɪ ꜱʜʀɪ ʀᴀᴍ 🚩</u></b>
+    START_TXT = """<b><u>Hallo</u></b>
 
 <b>ʜᴇʏ {}, {}</b>
 
@@ -7,11 +7,23 @@ class script(object):
 """
 
 
-    GSTART_TXT = """<b>🚩 ᴊᴀɪ ꜱʜʀɪ ʀᴀᴍ 🚩</b>
+    GSTART_TXT = """<b>hallo</b>
 
 <b>ʜᴇʏ {},</b>
 
-<b>🤖 ɪ ᴀᴍ <a href=https://t.me/{}>{}</a>, ᴛʜᴇ ᴍᴏꜱᴛ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ʙᴏᴛ ᴡɪᴛʜ ᴘʀᴇᴍɪᴜᴍ ꜰᴇᴀᴛᴜʀᴇꜱ.</b>"""
+<b>🤖 ɪ ᴀᴍ <a href=https://t.me/{}>{}</a>,
+ 
+𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆 𝗻𝗲𝘅𝘁-𝗴𝗲𝗻 𝘁𝗲𝗰𝗵𝗻𝗼𝗹𝗼𝗴𝘆 ⚡
+
+🎬 𝗨𝗻𝗹𝗶𝗺𝗶𝘁𝗲𝗱 𝗺𝗼𝘃𝗶𝗲𝘀 & 𝘀𝗲𝗿𝗶𝗲𝘀  
+⚡ 𝗟𝗶𝗴𝗵𝘁𝗻𝗶𝗻𝗴-𝗳𝗮𝘀𝘁 𝗱𝗲𝗹𝗶𝘃𝗲𝗿𝘆  
+📂 𝗣𝗲𝗿𝗳𝗲𝗰𝘁𝗹𝘆 𝗼𝗿𝗴𝗮𝗻𝗶𝘇𝗲𝗱 𝗿𝗲𝘀𝘂𝗹𝘁𝘀  
+
+
+
+➕ 𝗔𝗱𝗱 𝗺𝗲 𝘁𝗼 𝘆𝗼𝘂𝗿 𝗴𝗿𝗼𝘂𝗽  
+👑 𝗣𝗿𝗼𝗺𝗼𝘁𝗲 𝗺𝗲 𝗮𝘀 𝗮𝗻 𝗮𝗱𝗺𝗶𝗻  
+🔥 𝗨𝗻𝗹𝗼𝗰𝗸 𝗲𝗹𝗶𝘁𝗲 𝗮𝘂𝘁𝗼𝗺𝗮𝘁𝗶𝗼𝗻 𝗻𝗼𝘄 🚀.</b>"""
 
     
     HELP_TXT = """<b>
@@ -36,7 +48,7 @@ class script(object):
 
     ABOUT_TXT = """<b>╭────[ ᴍʏ ᴅᴇᴛᴀɪʟs ]────⍟
 ├⍟ Mʏ Nᴀᴍᴇ : <a href=https://t.me/{}>{}</a>
-├⍟ Dᴇᴠᴇʟᴏᴘᴇʀ : <a href={}>ᴏᴡɴᴇʀ</a> 
+├⍟ Dᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/Den_mark_zero'>ᴏᴡɴᴇʀ</a> 
 ├⍟ Lɪʙʀᴀʀʏ : <a href='https://docs.pyrogram.org/'>ᴘʏʀᴏɢʀᴀᴍ</a>
 ├⍟ Lᴀɴɢᴜᴀɢᴇ : <a href='https://www.python.org/download/releases/3.0/'>ᴘʏᴛʜᴏɴ 𝟹</a> 
 ├⍟ Dᴀᴛᴀʙᴀsᴇ : <a href='https://www.mongodb.com/'>ᴍᴏɴɢᴏ ᴅʙ</a> 
@@ -143,7 +155,7 @@ Nᴀᴍᴇ - {}
     CUDNT_FND = SPELLING_ERROR_TXT = """<b>‼️ ꜱᴘᴇʟʟɪɴɢ ᴍɪꜱᴛᴀᴋᴇ ʙʀᴏ!</b>  
 <b>😊 ɴᴏ ᴡᴏʀʀɪᴇꜱ — ᴄʜᴏᴏꜱᴇ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ ᴏɴᴇ ʙᴇʟᴏᴡ 👇</b>
 
-<blockquote>👇 नीचे दिए गए विकल्पों में से movie के नाम की सही spelling चुनें</blockquote>"""
+<blockquote>👇 𝗖𝗵𝗼𝗼𝘀𝗲 𝘁𝗵𝗲 𝗰𝗼𝗿𝗿𝗲𝗰𝘁 𝘀𝗽𝗲𝗹𝗹𝗶𝗻𝗴 𝗼𝗳 𝘁𝗵𝗲 𝗺𝗼𝘃𝗶𝗲 𝗻𝗮𝗺𝗲 𝗳𝗿𝗼𝗺 𝘁𝗵𝗲 𝗼𝗽𝘁𝗶𝗼𝗻𝘀 𝗴𝗶𝘃𝗲𝗻 𝗯𝗲𝗹𝗼𝘄.</blockquote>"""
 
 
     DEL_MSG = """⚠️ ᴛʜɪꜱ ᴍᴏᴠɪᴇ ꜰɪʟᴇ/ᴠɪᴅᴇᴏ ᴡɪʟʟ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ ɪɴ <b><u><code>{}</code></u></b>
@@ -229,7 +241,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b><a href="https://t.me/dreamxbotz">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/dreamxbotz">[ ᴅʀᴇᴀᴍxʙᴏᴛᴢ ]</a></b>"""
+    CAPTION = """<b><a href="https://t.me/movi_clubb">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/MalluTheaterLinkz">[ᴍᴀʟʟᴜᴛʜᴇᴀᴛᴇʀꜱ]</a></b>"""
 
     
     MOVIE_UPDATE_NOTIFY_TXT = """
@@ -379,7 +391,7 @@ sʜᴏᴡɴ ɪɴ : {remaining_seconds} <i>sᴇᴄ</i>⚡️
 ○ ᴍᴜʟᴛɪ-ᴘʟᴀʏᴇʀ sᴛʀᴇᴀᴍɪɴɢ ʟɪɴᴋs
 ○ ᴀᴅ-ғʀᴇᴇ ᴇxᴘᴇʀɪᴇɴᴄᴇ
 
-👨‍💻 ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ <a href='https://t.me/dreamxbotz'>Owner</a> ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴛʀɪᴀʟ.
+👨‍💻 ᴄᴏɴᴛᴀᴄᴛ ᴛʜᴇ <a href='https://t.me/Shebin_kallankunnan_zero'>Owner</a> ᴛᴏ ɢᴇᴛ ʏᴏᴜʀ ᴛʀɪᴀʟ.
 
 ➛ ᴜꜱᴇ /plan ᴛᴏ ꜱᴇᴇ ᴀʟʟ ᴏᴜʀ ᴘʟᴀɴꜱ ᴀᴛ ᴏɴᴄᴇ.
 ➛ ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴄᴛɪᴠᴇ ᴘʟᴀɴ ʙʏ ᴜꜱɪɴɢ : /myplan</b>"""
@@ -404,7 +416,7 @@ sʜᴏᴡɴ ɪɴ : {remaining_seconds} <i>sᴇᴄ</i>⚡️
     SOURCE_TXT ="""<b>ՏOᑌᖇᑕᗴ ᑕOᗪᗴ : 👇 </b>
 
 This Is An Open-Source Project. You Can Use It Freely, But Selling The Source Code Is Strictly Prohibited.\n
-ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ʜᴇʀᴇ ◉› :<a href=https://github.com/DreamXBotz/Auto_Filter_Bot.git>𝓓𝓻𝓮𝓪𝓶𝔁𝓑𝓸𝓽𝔃</a>\n """
+ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ʜᴇʀᴇ ◉› :<a href=https://nokkiirunnoippokittum.com/>ᴡᴀᴢᴇᴇᴍʙᴏᴛꜱ</a>\n """
 
     SETTING_TXT = """    
 <u>ꜱᴇᴛᴛɪɴɢꜱ</u> :
