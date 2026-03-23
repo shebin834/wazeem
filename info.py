@@ -18,9 +18,9 @@ def is_enabled(value, default):
 # Bot Information Configuration
 # ============================
 SESSION = environ.get('SESSION', 'Wazeem_search')   # Session name for the bot
-API_ID = int(environ.get('API_ID', '')) # API ID from my.telegram.org
-API_HASH = environ.get('API_HASH', '')  # API Hash from my.telegram.org
-BOT_TOKEN = environ.get('BOT_TOKEN', "")    # Bot token from @BotFather
+API_ID = int(environ.get('API_ID', '32557254')) # API ID from my.telegram.org
+API_HASH = environ.get('API_HASH', '448bb61d4711ef33afff691ac1bb0931')  # API Hash from my.telegram.org
+BOT_TOKEN = environ.get('BOT_TOKEN', "5699367227:AAHiH4ODdFXPx1qw7YEpgDCeV40NA7NQbRo")    # Bot token from @BotFather
 
 # ============================
 # Bot Settings Configuration
