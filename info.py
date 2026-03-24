@@ -75,7 +75,7 @@ STAR_PREMIUM_PLANS = {
 # ============================
 # MongoDB Configuration
 # ============================
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://shebinkallankunnan_db_user:kGcXRIsMv00mHieF@forwardcluster.lwso62u.mongodb.net/myDatabase?retryWrites=true&w=majority")  # MongoDB URI for the database
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://wazeem:a4d86W9kJ3npHxaD@forwardcluster.lwso62u.mongodb.net/myDatabase?retryWrites=true&w=majority")  # MongoDB URI for the database
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0") # Database name (default: cluster)
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'wazeem_files') # Collection name (default: dreamcinezone_files)
 
