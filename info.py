@@ -32,10 +32,10 @@ INDEX_CAPTION = bool(environ.get('SAVE_CAPTION', True)) # Save caption db when i
 COVERX = bool(environ.get('COVERX', True)) # Use cover image for indexed files (default: True)
 # If you disable it then bot will use a default thumb for all files
 
-PICS_URL = (environ.get('PICS', 'https://graph.org/file/9d92a05bd13c4fb04fc3d-a81852ea9bb334abe2.jpg')).split() #random anime girl img each time from aniwallpaper (Experimental)
-PICS = (environ.get('PICS', 'https://graph.org/file/9d92a05bd13c4fb04fc3d-a81852ea9bb334abe2.jpg https://graph.org/file/d64f39522ecec57850efa-b10e4eaf84e3e19727.jpg https://graph.org/file/2a92b6cd93ec6636861af-14cc14128b996924e9.jpg https://graph.org/file/90ba75774e34cb38c2819-f29ee49cc305a3e5ec.jpg')).split()  # Sample pic
+PICS_URL = (environ.get('PICS', '')).split() #random anime girl img each time from aniwallpaper (Experimental)
+PICS = (environ.get('PICS', 'https://graph.org/file/417a503d3b7df4d65d35a-03c0dad51239a17ac9.jpg https://graph.org/file/3a4395b48bf3831720192-896340f7f56fa391a4.jpg https://graph.org/file/60ea36fc13f47df6247e3-0fbd1c3c6ddd92a180.jpg')).split()  # Sample pic
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/e20b5fdaf217252964202.jpg")
-MELCOW_PHOTO = environ.get("MELCOW_PHOTO", "https://graph.org/file/90ba75774e34cb38c2819-f29ee49cc305a3e5ec.jpg")
+MELCOW_PHOTO = environ.get("MELCOW_PHOTO", "https://graph.org/file/60ea36fc13f47df6247e3-0fbd1c3c6ddd92a180.jpg")
 SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/13702ae26fb05df52667c.jpg")
 SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://graph.org/file/242b7f1b52743938d81f1.jpg'))
 FSUB_PICS = (environ.get('FSUB_PICS', 'https://graph.org/file/7478ff3eac37f4329c3d8.jpg https://graph.org/file/56b5deb73f3b132e2bb73.jpg')).split()  # Fsub pic
