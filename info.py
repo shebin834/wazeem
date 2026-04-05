@@ -32,7 +32,7 @@ INDEX_CAPTION = bool(environ.get('SAVE_CAPTION', True)) # Save caption db when i
 COVERX = bool(environ.get('COVERX', True)) # Use cover image for indexed files (default: True)
 # If you disable it then bot will use a default thumb for all files
 
-PICS_URL = (environ.get('PICS', '')).split() #random anime girl img each time from aniwallpaper (Experimental)
+PICS_URL = (environ.get('PICS', 'https://res.cloudinary.com/ddm5gh6vx/image/upload/A-still-fromThalllumaala-trailer_trgpod.jpg')).split() #random anime girl img each time from aniwallpaper (Experimental)
 PICS = (environ.get('PICS', 'https://graph.org/file/417a503d3b7df4d65d35a-03c0dad51239a17ac9.jpg https://graph.org/file/3a4395b48bf3831720192-896340f7f56fa391a4.jpg https://graph.org/file/60ea36fc13f47df6247e3-0fbd1c3c6ddd92a180.jpg')).split()  # Sample pic
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/e20b5fdaf217252964202.jpg")
 MELCOW_PHOTO = environ.get("MELCOW_PHOTO", "https://graph.org/file/60ea36fc13f47df6247e3-0fbd1c3c6ddd92a180.jpg")
