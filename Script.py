@@ -253,7 +253,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = """<b><a href="https://t.me/+NMted9BasygyMDFl">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/MALAYALIFREAKSALL">[ᴍᴀʟᴀʏᴀʟɪғʀᴇᴀᴋs]</a></b>"""
+    CAPTION = """<b><a href="https://t.me/MalluTheaterLinkz">{file_name}</a></b>\n\n<b>⚜️ Powered By : <a href="https://t.me/MalluTheaterLinkz">[ᴍᴀʟʟᴜᴛʜᴇᴀᴛᴇʀs]</a></b>"""
 
     
     MOVIE_UPDATE_NOTIFY_TXT = """
