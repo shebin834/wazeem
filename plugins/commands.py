@@ -7,7 +7,7 @@ import asyncio
 import string
 import sys
 import pytz
-from .pmfilter import auto_filter 
+from .pmfilter import auto_filter
 from Script import script
 from datetime import datetime
 from database.refer import referdb
@@ -17,6 +17,7 @@ from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, ChatAdminRequired, UserNotParticipant , ChannelInvalid, PeerIdInvalid
 from database.ia_filterdb import Media, Media2, get_file_details, unpack_new_file_id, get_bad_files, save_file
 from database.users_chats_db import db
+from database.ads_db import ads_db  # AD DATABASE IMPORTED HERE
 from info import *
 from utils import get_settings, save_group_settings, is_subscribed, is_req_subscribed, get_size, get_shortlink, is_check_admin, temp, get_readable_time, get_time, generate_settings_text, log_error, clean_filename, get_random_mix_id
 import time
@@ -82,7 +83,9 @@ async def start(client, message):
                 reply_markup=reply_markup,
                 parse_mode=enums.ParseMode.HTML
             )
-            await sticker.delete()
+            try:
+                await sticker.delete()
+            except: pass
             await asyncio.sleep(300)
             await dlt.delete()
             return         
@@ -94,7 +97,9 @@ async def start(client, message):
                       ]]
             reply_markup = InlineKeyboardMarkup(buttons)
             await message.reply(script.GSTART_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup, disable_web_page_preview=True)
-            await sticker.delete()
+            try:
+                await sticker.delete()
+            except: pass
             await asyncio.sleep(2) 
             if not await db.get_chat(message.chat.id):
                 total=await client.get_chat_members_count(message.chat.id)
@@ -317,7 +322,9 @@ async def start(client, message):
                         reply_markup=reply_markup,
                         parse_mode=enums.ParseMode.HTML
                     )
-                    await sticker.delete()
+                    try:
+                        await sticker.delete()
+                    except: pass
                     await asyncio.sleep(300) 
                     await n.delete()
                     await m.delete()
@@ -364,11 +371,33 @@ async def start(client, message):
                         reply_markup=InlineKeyboardMarkup(btn)
                     )
                     filesarr.append(msg)
+                
+                # AD CODE STARTS HERE - ALL FILES
+                ad_msg = None
+                ad = await ads_db.get_next_ad()
+                if ad:
+                    try:
+                        if ad['type'] == 'photo':
+                            ad_msg = await client.send_photo(chat_id=message.from_user.id, photo=ad['content'], caption="**Sponsored**")
+                        elif ad['type'] == 'video':
+                            ad_msg = await client.send_video(chat_id=message.from_user.id, video=ad['content'], caption="**Sponsored**")
+                        elif ad['type'] == 'text':
+                            ad_msg = await client.send_message(chat_id=message.from_user.id, text=ad['content'])
+                    except Exception as e:
+                        pass
+                # AD CODE ENDS HERE
+
                 k = await client.send_message(chat_id=message.from_user.id, text=script.DEL_MSG.format(get_time(DELETE_TIME)), parse_mode=enums.ParseMode.HTML)
-                await sticker.delete()
+                try:
+                    await sticker.delete()
+                except: pass
                 await asyncio.sleep(DELETE_TIME)
                 for x in filesarr:
                     await x.delete()
+                
+                if ad_msg:
+                    await ad_msg.delete()
+
                 await k.edit_text("<b>ʏᴏᴜʀ ᴀʟʟ ᴠɪᴅᴇᴏꜱ/ꜰɪʟᴇꜱ ᴀʀᴇ ᴅᴇʟᴇᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ !\nᴋɪɴᴅʟʏ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ</b>")
                 return
             except Exception as e:
@@ -384,8 +413,6 @@ async def start(client, message):
                 raise ValueError("Invalid encoded data")
             pre = raw[:sep].decode("ascii")
             file_id = raw[sep + 1:].decode("latin1")
-        # if not files_:
-        #     pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("utf-8")).split("_", 1)
             try:
                 cover = None
                 if COVERX:
@@ -415,12 +442,34 @@ async def start(client, message):
                     f_caption,
                     reply_markup=InlineKeyboardMarkup(btn)
                 )
+
+                # AD CODE STARTS HERE - ENCODED SINGLE FILE
+                ad_msg = None
+                ad = await ads_db.get_next_ad()
+                if ad:
+                    try:
+                        if ad['type'] == 'photo':
+                            ad_msg = await client.send_photo(chat_id=message.from_user.id, photo=ad['content'], caption="**Sponsored**")
+                        elif ad['type'] == 'video':
+                            ad_msg = await client.send_video(chat_id=message.from_user.id, video=ad['content'], caption="**Sponsored**")
+                        elif ad['type'] == 'text':
+                            ad_msg = await client.send_message(chat_id=message.from_user.id, text=ad['content'])
+                    except Exception as e:
+                        pass
+                # AD CODE ENDS HERE
+
                 k = await msg.reply(script.DEL_MSG.format(get_time(DELETE_TIME)),
                     quote=True, parse_mode=enums.ParseMode.HTML
                 )
-                await sticker.delete()
+                try:
+                    await sticker.delete()
+                except: pass
                 await asyncio.sleep(DELETE_TIME)
                 await msg.delete()
+                
+                if ad_msg:
+                    await ad_msg.delete()
+
                 await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
                 return
             except Exception as e:
@@ -445,6 +494,7 @@ async def start(client, message):
         if f_caption is None:
             f_caption = clean_filename(files.file_name)
         btn = await stream_buttons(message.from_user.id, file_id)
+        
         msg = await client.send_cached_media(
             chat_id=message.from_user.id,
             file_id=file_id,
@@ -454,23 +504,43 @@ async def start(client, message):
             reply_markup=InlineKeyboardMarkup(btn)
         )
         
+        # AD CODE STARTS HERE - SINGLE FILE
+        ad_msg = None
+        ad = await ads_db.get_next_ad()
+        if ad:
+            try:
+                if ad['type'] == 'photo':
+                    ad_msg = await client.send_photo(chat_id=message.from_user.id, photo=ad['content'], caption="**Sponsored**")
+                elif ad['type'] == 'video':
+                    ad_msg = await client.send_video(chat_id=message.from_user.id, video=ad['content'], caption="**Sponsored**")
+                elif ad['type'] == 'text':
+                    ad_msg = await client.send_message(chat_id=message.from_user.id, text=ad['content'])
+            except Exception as e:
+                pass
+        # AD CODE ENDS HERE
+
         k = await msg.reply(script.DEL_MSG.format(get_time(DELETE_TIME)),
             quote=True, parse_mode=enums.ParseMode.HTML
         )
-        await sticker.delete()
+        try:
+            await sticker.delete()
+        except: pass
         await asyncio.sleep(DELETE_TIME)
         await msg.delete()
+
+        if ad_msg:
+            await ad_msg.delete()
+
         await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
         return
     except Exception as e:
         logger.exception(f"Error In /start command - {e}")
         pass
     finally:
-        if sticker:
+        if 'sticker' in locals():
             try:
                 await sticker.delete()
             except Exception as e:
-                logger.exception(f"Error In Deleting Sticker - {e}")
                 pass
 
 async def stream_buttons(user_id: int, file_id: str):
