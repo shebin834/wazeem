@@ -372,21 +372,20 @@ async def start(client, message):
                     )
                     filesarr.append(msg)
                 
-                # AD CODE STARTS HERE - ALL FILES
-                ad_msg = None
-                ad = await ads_db.get_next_ad()
-                if ad:
-                    try:
-                        if ad['type'] == 'photo':
-                            ad_msg = await client.send_photo(chat_id=message.from_user.id, photo=ad['content'], caption="**Sponsored**")
-                        elif ad['type'] == 'video':
-                            ad_msg = await client.send_video(chat_id=message.from_user.id, video=ad['content'], caption="**Sponsored**")
-                        elif ad['type'] == 'text':
-                            ad_msg = await client.send_message(chat_id=message.from_user.id, text=ad['content'])
-                    except Exception as e:
-                        pass
-                # AD CODE ENDS HERE
-
+                # --- AD DISPLAY LOGIC START ---
+             try:
+                  active_ads = await ads_db.get_active_ads()
+              if active_ads:
+                  ad = random.choice(active_ads)
+                 if ad['type'] == 'photo':
+                     await message.reply_photo(photo=ad['content'], caption=ad.get('caption', ''))
+                 elif ad['type'] == 'video':
+                     await message.reply_video(video=ad['content'], caption=ad.get('caption', ''))
+                 elif ad['type'] == 'text':
+                     await message.reply_text(text=ad['content'])
+          except Exception as e:
+            print(f"Error sending ad: {e}")
+        # --- AD DISPLAY LOGIC END ---
                 k = await client.send_message(chat_id=message.from_user.id, text=script.DEL_MSG.format(get_time(DELETE_TIME)), parse_mode=enums.ParseMode.HTML)
                 try:
                     await sticker.delete()
