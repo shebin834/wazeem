@@ -192,7 +192,7 @@ async def start(client, message):
             try:
                 uss = await client.get_users(user_id)
             except Exception:
-                return 	    
+                return  	    
             referdb.add_user(message.from_user.id)
             fromuse = referdb.get_refer_points(user_id) + 10
             if fromuse == 100:
@@ -373,19 +373,19 @@ async def start(client, message):
                     filesarr.append(msg)
                 
                 # --- AD DISPLAY LOGIC START ---
-             try:
-                  active_ads = await ads_db.get_active_ads()
-              if active_ads:
-                  ad = random.choice(active_ads)
-                 if ad['type'] == 'photo':
-                     await message.reply_photo(photo=ad['content'], caption=ad.get('caption', ''))
-                 elif ad['type'] == 'video':
-                     await message.reply_video(video=ad['content'], caption=ad.get('caption', ''))
-                 elif ad['type'] == 'text':
-                     await message.reply_text(text=ad['content'])
-          except Exception as e:
-            print(f"Error sending ad: {e}")
-        # --- AD DISPLAY LOGIC END ---
+                try:
+                    active_ads = await ads_db.get_active_ads()
+                    if active_ads:
+                        ad = random.choice(active_ads)
+                        if ad['type'] == 'photo':
+                            await message.reply_photo(photo=ad['content'], caption=ad.get('caption', ''))
+                        elif ad['type'] == 'video':
+                            await message.reply_video(video=ad['content'], caption=ad.get('caption', ''))
+                        elif ad['type'] == 'text':
+                            await message.reply_text(text=ad['content'])
+                except Exception as e:
+                    print(f"Error sending ad: {e}")
+                # --- AD DISPLAY LOGIC END ---
                 k = await client.send_message(chat_id=message.from_user.id, text=script.DEL_MSG.format(get_time(DELETE_TIME)), parse_mode=enums.ParseMode.HTML)
                 try:
                     await sticker.delete()
@@ -887,7 +887,7 @@ async def send_msg(bot, message):
             else:
                 success = False
             if success:
-                await message.reply_text(f"<b>ʏᴏᴜʀ ᴍᴇꜱꜱᴀɢᴇ ʜᴀꜱ ʙᴇᴇɴ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴛ ᴛᴏ {user.mention}.</b>")
+                await message.reply_text(f"<b>ʏᴏᴜʀ ᴍᴇꜱꜱᴀɢᴇ ʜᴀꜱ ʙᴇᴇɴ ꜱᴜᴄꜱꜱꜰᴜʟʟʏ ꜱᴇɴᴛ ᴛᴏ {user.mention}.</b>")
             else:
                 await message.reply_text("<b>ᴛʜɪꜱ ᴜꜱᴇʀ ᴅɪᴅɴ'ᴛ ꜱᴛᴀʀᴛᴇᴅ ᴛʜɪꜱ ʙᴏᴛ ʏᴇᴛ !</b>")
         except Exception as e:
